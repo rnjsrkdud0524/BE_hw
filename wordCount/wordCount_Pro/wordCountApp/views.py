@@ -3,7 +3,10 @@ from django.shortcuts import render
 # Create your views here.
 def index(request):
     return render(request, "index.html")
-#index 함수가 요청되었을 때, index.html을 띄워주라는 의미
+
+def hello(request):
+    texts = request.GET['text']
+    return render(request, 'hello.html', {'name':texts})
 
 def wordCount(request):
     return render(request, "wordCount.html")
@@ -22,5 +25,8 @@ def result(request):
             word_dictionary[word] += 1
         else:
             word_dictionary[word] = 1
+
+    characters = len(entered_text)
+    withoutSpaces_characters = len(entered_text.replace(" ", ""))
     
-    return render(request, "result.html", {'length': len(word_dictionary), 'alltext': entered_text, 'dictionary': word_dictionary.items()})
+    return render(request, "result.html", {'length': len(word_list), 'alltext': entered_text, 'dictionary': word_dictionary.items(), 'characters': characters, 'withoutSpaces_characters': withoutSpaces_characters})

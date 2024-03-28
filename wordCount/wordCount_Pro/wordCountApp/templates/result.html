@@ -15,4 +15,17 @@
 <br />
 {% endfor %}
 
+<!-- 띄어쓰기를 포함한 글자 수 -->
+<h1>글자 수 세기:</h1>
+{{ characters }}
+<br />
+
+<!-- 띄어쓰기를 제외한 글자 수 -->
+<h1>띄어쓰기 제외 글자 수 세기:</h1>
+{{ withoutSpaces_characters }}
+
+<br />
+<br />
+<br />
+
 <a href="{% url 'wordCount' %}">다시하기</a>
