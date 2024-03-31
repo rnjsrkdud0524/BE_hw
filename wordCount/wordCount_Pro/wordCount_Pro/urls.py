@@ -28,4 +28,5 @@ urlpatterns = [
     path('wordCount/', views.wordCount, name="wordCount"),
     path('result/', views.result, name="result"),
 #urls.py에서 설정한 name이 template언어에서 사용된다
+    path('hello/', views.hello, name='hello'),
 ]
