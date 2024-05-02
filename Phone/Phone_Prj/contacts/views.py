@@ -34,7 +34,7 @@ def create(request):
         )
         return redirect('list')
     
-    return render(request, 'contact/list.html')
+    return render(request, 'contacts/create.html')
 
 def detail(request, id):
     contact = get_object_or_404(Phone, id = id)
