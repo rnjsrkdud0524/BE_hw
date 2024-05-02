@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from contacts import views
 from django.urls import path, include
-
+# 수정
 
 urlpatterns = [
     path('admin/', admin.site.urls),
