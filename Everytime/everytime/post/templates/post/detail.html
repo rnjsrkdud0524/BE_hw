@@ -10,7 +10,7 @@
     <p>내용 - {{ post.content }}</p>
     <p>작성일 - {{ post.created_at }}</p>
     <p>
-      {% if post.anonymity %} 익명 {%else%} 닉네임 - {{ user.nickname }} {%
+      {% if post.anonymity %} 익명 {% else %} 닉네임 - {{ user.nickname }} {%
       endif %}
     </p>
     <hr />

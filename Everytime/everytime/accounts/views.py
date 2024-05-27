@@ -24,7 +24,7 @@ def login_view(request):
     form=AuthenticationForm(request, data = request.POST)
     if form.is_valid():
         login(request, form.user_cache)
-        return redirect('post:create')
+        return redirect('post:list')
     return render(request, 'accounts/login.html', {'form': AuthenticationForm})
 
 def logout_view(request):

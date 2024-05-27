@@ -38,7 +38,7 @@ def update(request, id):
         post.title = request.POST.get('title')
         post.content = request.POST.get('content')
         post.save()
-        return redirect('post/detail', id)
+        return redirect('post:detail', id)
     return render(request, 'post/update.html', {'post' : post})
 
 @login_required
