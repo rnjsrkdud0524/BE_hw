@@ -25,12 +25,12 @@ class Like(models.Model):
     user = models.ForeignKey(to = User, on_delete= models.CASCADE, related_name= "user_likes")
     
 class PostCategory(models.Model):
-    category = models.ForeignKey(to = Category, on_delete= models.PROTECT, related_name="catefories_postcategory")
+    category = models.ForeignKey(to = Category, on_delete= models.PROTECT, related_name= "categories_postcategory")
     post = models.ForeignKey(to = Post, on_delete= models.PROTECT, related_name="posts_postcategory")
     
 
 class Comment(models.Model):
-    post = models.ForeignKey(to = Post, on_delete = models.CASCADE, related_name = "comment")
+    post = models.ForeignKey(to = Post, on_delete = models.CASCADE, related_name = "comments")
     content = models.TimeField
     created_at = models.DateTimeField(auto_now_add = True)
     author = models.ForeignKey(to = User, on_delete = models.CASCADE, related_name= "comments")

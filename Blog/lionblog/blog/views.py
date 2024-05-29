@@ -34,13 +34,13 @@ def create(request):
         post = Post.objects.create(
             title = title,
             content = content,
-            author = request.user
+            author = request.user,
         )
 
         for category in category_list:
             post.category.add(category)
 
-        return redirect('blog:list')
+        return redirect('list')
     return render(request, 'blog/create.html', {'categories' : categories})
 
 def detail(request, id):
