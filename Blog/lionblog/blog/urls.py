@@ -1,5 +1,7 @@
 from django.urls import path
 from .views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 app_name = 'blog'
 urlpatterns = [
@@ -12,4 +14,4 @@ urlpatterns = [
     path('add-like/<int:post_id>/', add_like, name = "add-like"),
     path('remove-like/<int:post_id>/', remove_like, name = "remove-like"),
     path('my-like/', mylike, name = "my-like")
-]
+]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
