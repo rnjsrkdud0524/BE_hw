@@ -22,11 +22,13 @@
       <input type="submit" value="작성하기" />
     </form>
     <hr />
-    {% for post in posts %}
+
+    {% if posts.exists %}{% for post in posts %}
     <h2><a href="{% url 'post:detail' post.id %}">{{ post.title }}</a></h2>
     <p>{{ post.content }}</p>
     <p>{{ post.created_at }}</p>
-
-    {% empty %} 작성된 글이 없습니다. {% endfor %}
+    {% endfor %}
+    <br />
+    {% else %} 작성된 글이 없습니다. {% endif %}
   </body>
 </html>
