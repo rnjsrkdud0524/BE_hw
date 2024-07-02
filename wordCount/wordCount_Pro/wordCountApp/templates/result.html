@@ -1,0 +1,31 @@
+<!--wordCount.html에서 텍스트를 받아 Count!를 누르면 입력 받은 텍스트를 가공한 결과를 result.html에 보여주는 구조 만들기-->
+<h1>
+  당신이 입력한 텍스트는
+  <!---->
+  {{ length }}단어로 구성되어 있습니다.
+</h1>
+
+<h1>입력한 텍스트:</h1>
+<!-- '단어' - '단어 나온 횟수' -->
+{{ alltext }}
+
+<h1>단어 카운트:</h1>
+<!-- '단어' - '단어 나온 횟수' -->
+{% for word, frequency in dictionary %} {{ word }} : {{ frequency }}
+<br />
+{% endfor %}
+
+<!-- 띄어쓰기를 포함한 글자 수 -->
+<h1>글자 수 세기:</h1>
+{{ characters }}
+<br />
+
+<!-- 띄어쓰기를 제외한 글자 수 -->
+<h1>띄어쓰기 제외 글자 수 세기:</h1>
+{{ withoutSpaces_characters }}
+
+<br />
+<br />
+<br />
+
+<a href="{% url 'wordCount' %}">다시하기</a>

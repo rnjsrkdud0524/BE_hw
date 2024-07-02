@@ -1,0 +1,7 @@
+<h1>"{{ alltext }}" - 검색 결과</h1>
+<br />
+{% for post in posts %}
+<h2>{{ post.title }}</h2>
+<p>{{ post.content }}</p>
+
+{% empty %} 게시물이 없습니다. {% endfor %}

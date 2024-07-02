@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% if request.user.is_authenticated %} {{ request.user.nickname }}님
+    환영합니다 <br />
+    <a href="{% url 'accounts:logout' %}">로그아웃</a>
+    <a href="{% url 'accounts:mypage' %}">마이페이지</a><br /><br />
+    {% else %}
+    <a href="{% url 'accounts:login' %}">로그인</a>
+    <a href="{% url 'accounts:signup' %}">회원가입</a><br /><br />
+    {% endif %}
+    <a href="{% url 'blog:create' %}"> 글 작성하기 </a>
+    <hr />
+
+    <form method="GET" action="{%url 'blog:list'%}">
+      <select name="category">
+        <option value="">모든 카테고리</option>
+        {% for category in categories %}
+        <option value="{{category.id}}">{{category.name}}</option>
+        {%endfor%}
+      </select>
+      <input type="submit" value="조회" />
+    </form>
+
+    {% for post in posts %}
+    <h2><a href="{% url 'blog:detail' post.id %}">{{ post.title }}</a></h2>
+    <p>{{ post.content }}</p>
+    <p>작성일 - {{ post.created_at }}</p>
+
+    {% empty %} 작성된 글이 없습니다. {% endfor %}
+  </body>
+</html>
